@@ -5,8 +5,8 @@ class Solution {
         // your code here
          long long x = n * (n - 1) / 2;
 
-    // Function to calculate
-    // (2^x) % mod
-    return pow(2, x);
+  
+    // (2^x) 
+    //return pow(2, x);
     }
 };
