@@ -50,6 +50,9 @@ class Solution {
     }
 };
 ```
+### TC : O(N+2E)+O(N)  < second O(N) for components >   O(N+2E because we are total N nodes and each nodes is traversing for its neighbours to total 2E = summation of all the degrees  each nodes are not traversing 2E times that's why it is not O(N*2E) 
+### SC: O(N) + O(N) queue + vis
+
 
 ### Code [DFS]😉
 
