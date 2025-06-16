@@ -26,8 +26,9 @@ Constraints:
 1 ≤ edges.size() ≤ 105
 0 <= edges[i][0], edges[i][1] < V
 ```
+#  DFS approach😉
 ```c++
-//by dfs approach
+
 class Solution {
   public:
     void dfs(int node,vector<int>&temp,vector<int>&vis,vector<vector<int>>& adj){
@@ -70,10 +71,13 @@ class Solution {
 };
 ```
 
-//sc : O(n)[traversing n nodes ] + O(n) [visited] + O(n)[recursion stack space]
-//tc : O(n) + O(2E)
+sc : O(n)[traversing n nodes ] + O(n) [visited] + O(n)[recursion stack space]
+
+tc : O(n) + O(2E)
+
+# Code BFS 😍
 ```c++
-//by bfs approach
+
 
 class Solution {
   public:
