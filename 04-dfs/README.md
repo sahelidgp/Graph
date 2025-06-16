@@ -44,7 +44,7 @@ Constraints:
 1 ≤ V = adj.size() ≤ 104
 1 ≤ adj[i][j] ≤ 104
 ```
-# code
+# code using recursion
 ```c++
 class Solution {
 public:
@@ -72,4 +72,33 @@ public:
 };
 //sc : O(n)[traversing n nodes ] + O(n) [visited] + O(n)[recursion stack space]
 //tc : O(n) + O(2E)
+```
+# code using stack
+```c++
+class Solution {
+  public:
+    vector<int> dfs(vector<vector<int>>& adj) {
+        // Code here
+        vector<int> v(adj.size(),0);
+        stack<int> s;
+        vector<int> dfs;
+        s.push(0);
+        int val;
+        while(!s.empty()){
+            val=s.top();
+            s.pop();
+            if(v[val]==0){
+                v[val]=1;
+                dfs.push_back(val);
+                for(int i=adj[val].size()-1;i>=0;i--){
+                    if(v[adj[val][i]]==0){
+                        s.push(adj[val][i]);
+                    }
+                } 
+        }
+            
+        }
+        return dfs;
+    }
+};
 ```
