@@ -66,9 +66,6 @@ class Solution {
 ```
 
 # We can do this using single visited array using different notations
-not visited >  0
-visited > 1
-pathvisited > 2
 
 ```c++
 class Solution {
