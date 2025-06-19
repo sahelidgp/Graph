@@ -44,7 +44,42 @@ class Solution {
     }
 };
 ```
+# Iterative :
 
+```c++
+class Solution {
+  public:
+    bool isCycle(int V, vector<vector<int>>& e) {
+        // Code here
+        vector<vector<int>> adj(V);
+        for(int i=0;i<e.size();i++){
+            adj[e[i][0]].push_back(e[i][1]);
+            adj[e[i][1]].push_back(e[i][0]);
+        }
+        vector<int> v(adj.size(),0);
+        stack<pair<int,int>> s;
+        int val,p;
+        for(int j=0;j<V;j++){
+            if(v[j]==0){
+                s.push({j,-1});
+                v[j]=1;
+                while(!s.empty()){
+                    val=s.top().first;
+                    p=s.top().second;
+                    s.pop();
+                    for(int i=0;i<adj[val].size();i++){
+                        if(v[adj[val][i]]==0){
+                            s.push({adj[val][i],val});
+                            v[adj[val][i]]=1;
+                        }else if(adj[val][i]!=p) return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+};
+```
 
 ### BFS COde
 
