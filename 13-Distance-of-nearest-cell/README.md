@@ -52,7 +52,45 @@ class Solution {
     }
 };
 ```
-
+# Code Iterative 
+```c++
+class Solution {
+public:
+    vector<vector<int>> updateMatrix(vector<vector<int>>& mat) {
+        queue<pair<int,int>> q;
+        vector<vector<int>> d(mat.size(),vector<int>(mat[0].size(),INT_MAX));
+        //for(int i=0;i<d.size();i++) d[i]=new vector<int>(mat[i].size(),INT_MAX);
+        for(int i=0;i<mat.size();i++){
+            for(int j=0;j<mat[i].size();j++){
+                if(mat[i][j]==0){
+                    d[i][j]=0;
+                    q.push({i,j});
+                }
+            }
+        }
+        while(!q.empty()){
+            int x=q.front().first,y=q.front().second;
+            q.pop();
+            if(x>0&&d[x-1][y]>d[x][y]+1){
+                d[x-1][y]=d[x][y]+1;
+                q.push({x-1,y});
+            }
+            if(x<d.size()-1&&d[x+1][y]>d[x][y]+1){
+                d[x+1][y]=d[x][y]+1;
+                q.push({x+1,y});
+            }
+            if(y>0&&d[x][y-1]>d[x][y]+1){
+                d[x][y-1]=d[x][y]+1;
+                q.push({x,y-1});
+            }
+            if(y<d[x].size()-1&&d[x][y+1]>d[x][y]+1){
+                d[x][y+1]=d[x][y]+1;
+                q.push({x,y+1});
+            }
+        }return d;
+    }
+};
+```
 sc = > O(n*m)
 tc => O(n*m*4)
 
