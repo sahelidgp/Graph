@@ -52,12 +52,12 @@ class Solution {
   
     void dfs(int node,vector<vector<int>> &adj,vector<int>&vis){
         vis[node] = 1;
-        for(int j: adj[node]){
-            if(adj[node][j]){
-             if(!vis[j]){
-                dfs(j,adj,vis);
-             } 
+        for(int j=0;j<adj[node].size();j++){
+             if(adj[node][j] == 1){
+                 if(!vis[j]){
+                  dfs(j,adj,vis);
             }
+             }
         }
     }
     int numProvinces(vector<vector<int>> adj, int V) {
@@ -67,10 +67,10 @@ class Solution {
         vector<int>vis(V,0);
         
         for(int i=0;i<V;i++){
-            if(!vis)
+            if(!vis[i]){
             dfs(i,adj,vis);
             count++;
-            
+            }
         }
     
         return count;
